@@ -11,8 +11,9 @@
   "typings": "./dist/index.d.ts",
   "scripts": {
     "test": "mocha --require core-js/shim --require reflect-metadata --require ts-node/register lib/**/*.spec.ts",
-    "prepublish": "typings install && rimraf dist && tsc",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "prepublish": "typings install && npm run build",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "build": "rimraf dist && ngc && mv lib/*.ngfactory.ts dist/ && mv lib/*.ngsummary.json dist/"
   },
   "repository": {
     "type": "git",
@@ -32,17 +33,25 @@
     "@angular/core": "^2.0.0"
   },
   "devDependencies": {
-    "@angular/core": "^2.0.0",
+    "@angular/compiler": "^2.4.1",
+    "@angular/compiler-cli": "^2.4.1",
+    "@angular/core": "^2.4.1",
+    "@types/chai": "^3.4.34",
+    "@types/core-js": "^0.9.35",
+    "@types/flat": "0.0.28",
+    "@types/mocha": "^2.2.35",
+    "@types/node": "^6.0.57",
+    "@types/sprintf-js": "0.0.27",
     "chai": "3.5.0",
     "core-js": "2.4.1",
     "mocha": "2.4.5",
     "reflect-metadata": "0.1.8",
     "rimraf": "2.5.2",
-    "rxjs": "5.0.0-rc.3",
+    "rxjs": "5.0.1",
     "semantic-release": "6.2.1",
     "ts-node": "0.7.0",
     "typescript": "2.0.10",
     "typings": "2.0.0",
-    "zone.js": "0.6.26"
+    "zone.js": "0.7.2"
   }
 }

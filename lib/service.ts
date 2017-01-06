@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
-const { flatten } = require('flat');
-const { vsprintf } = require('sprintf-js');
+import { flatten } from 'flat';
+import { vsprintf } from 'sprintf-js';
 
 @Injectable()
 export class TranslateService {

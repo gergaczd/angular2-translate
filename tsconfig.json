@@ -7,7 +7,8 @@
         "experimentalDecorators": true,
         "sourceMap": true,
         "declaration": true,
-        "outDir": "dist/"
+        "outDir": "dist/",
+        "types": ["chai", "core-js", "node", "mocha"]
     },
     "exclude": [
         "node_modules",
